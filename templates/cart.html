@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+<body>
+{% if user.is_authenticated %}
+<div class="row">
+  <div class="col-25">
+    <div class="container">
+      <h4>Cart
+        <span class="price" style="color:white">
+          <i class="fa fa-shopping-cart"></i>
+
+          <b>{{itc}}</b>
+        </span>
+      </h4>
+        {% for i in ci %}
+
+        <a href="{% url 'remove' i.prodt.id %}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-trash-o" style="font-size:24px"></i></a><a href="{{i.prodt.get_url}}">&nbsp;<img src="{{i.prodt.img.url}}" alt="i.prodt.name" style="height:70;width:70">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rs{{i.total}}<br><br>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{i.prodt.name}}</a><br><br><a href="{% url 'addcart' i.prodt.id %}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-plus" style="font-size:20px"></i></a> {{i.QTY}}<a href="{% url 'cart_decrement' i.prodt.id %}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-minus" style="font-size:20px"></i></a></span></p>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;price * 1: {{i.prodt.price}}</p>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Qty:{{i.QTY}}</p>
+      <hr>
+        {% endfor %}
+      <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total Price: <span class="price" style="color:white;background-color:red;font-family:'comic sans ms'"><b>Rs:{{t}}</b></span></p>
+<!--      </i></i>-->
+<!--      <p&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; class="btn btn-success" href="{% url 'purchers' %}">Purcherse</p>-->
+                <li><a class="active" href="{% url 'purchers' %}">Purchers</a></li>
+
+
+    </div>
+
+  </div>
+</div>
+{% else %}
+<h1><b>your not login person..</b></h1>
+{% endif %}
+</body>
+</html>
+{% endblock %}

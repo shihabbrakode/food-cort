@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!--<!DOCTYPE html>-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Purchers Items</title>
+</head>
+<body>
+<h2><b>purchers page</b></h2>
+<br>
+&nbsp;&nbsp;&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Quantity&nbsp;&nbsp;&nbsp;Rate&nbsp;&nbsp;&nbsp;Price&nbsp;&nbsp;&nbsp;Total<br>
+{% for i in cp %}
+&nbsp;&nbsp;&nbsp;{{i.prodt}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{i.QTY}}&nbsp;&nbsp;&nbsp;{{i.prodt.price}}&nbsp;&nbsp;&nbsp;{{i.total}}<br>
+<!--&nbsp;&nbsp;&nbsp;Qty:{{i.QTY}}<br>-->
+<!--&nbsp;&nbsp;&nbsp;Rate 1* {{i.prodt.price}}<br>-->
+<!--&nbsp;&nbsp;&nbsp;price {{i.total}}<br><br>-->
+<!--&nbsp;&nbsp;&nbsp;id is...{{i.id}}<br>-->
+{% endfor %}
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total Price {{tt}}
+
+</body>
+
+</html>
+{% endblock %}

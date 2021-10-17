@@ -1,0 +1,29 @@
+
+<Html>
+<head>
+    Pleace enter your username and password
+<title>
+Registration
+</title>
+</head>
+<body bgcolor="Lightskyblue">
+<br>
+<br>
+<form action="register" method="post">
+    {% csrf_token %}
+<label> User Name </label>
+<input type="text" name="username" size="15"/> <br> <br>
+Password:
+<input type="password" id="pass" name="password"> <br>
+<br>
+Re-type password:
+<input type="password" id="repass" name="passre"> <br> <br>
+<input type="submit" value="register"/>
+</form>
+<div>
+    {% for message in messages %}
+    <h4>{{message}}</h4>
+    {% endfor %}
+</div>
+</body>
+</html>

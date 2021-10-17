@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--<a  href="#"><img src="images/demo/348x261.png" alt=""></a>-->
+{% for i in dis %}
+<li class="one-third">
+    <figure><a class="imgover" href="#"><img src={{i.img.url}} alt="" style="width:400;height:300"></a>
+    <figcaption>
+        <h6 class="heading">{{i.name}}</h6>
+        <p>{{i.desc}}</p>
+    </figcaption>
+    </figure>
+</li>
+
+{% endfor %}
+
+</body>
+</html>
+{% endblock %}
